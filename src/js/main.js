@@ -8,13 +8,11 @@ const formEl = document.querySelector('form');
 
 const submitForm = (e) => {
     e.preventDefault()
-    console.log('Form has been sumited', e)
-
 
     const formDate = new FormData(formEl);
+    const recordObj = Object.fromEntries(formDate)
 
-    console.log([...formDate.entries()]);
-    console.log([...formDate.values()]);
+    createRecord(recordObj);
 
     // updated ul logic
     updateUi();

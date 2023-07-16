@@ -110,8 +110,8 @@
 
                     </div>
                     <div class="col-span-2">
-                        <label for="terms" class="text-xs">
-                            <input type="checkbox" name="terms" required>
+                        <label for="requirements_terms" class="text-xs">
+                            <input type="checkbox" name="requirements_terms" required>
                             <span class="ml-2">I accept i need the following requirements to proceed this
                                 internship</span>.
                         </label>
@@ -163,13 +163,22 @@
 
     <section class="bg-white max-w-xl mx-auto p-10 m-10 rounded text-center hidden" id="formSubmitted">
         <div>
-            
+
         </div>
         <h1 class="font-xl font-semibold">Thank you. we received your application.</h1>
         <p class="text-sm text-gray-600">Your application has been successfully registered.</p>
         <button class="px-4 py-2 rounded bg-blue-500 text-white my-2">share</button>
     </section>
+    
+
+    <!-- Firebase -->
+
+
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore-compat.js"></script>
+    <script src="./js/firebase.js"></script>
     <script src="./js/main.js"></script>
+
 </body>
 
 </html>
