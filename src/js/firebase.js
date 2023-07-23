@@ -15,11 +15,9 @@ const app = firebase.initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = firebase.firestore();
+const auth = firebase.auth();
 
-const person = {
-    name: 'dinesh',
-    city: 'bangalore'
-}
+
 
 const createRecord = (record) => {
 
@@ -32,4 +30,27 @@ const createRecord = (record) => {
         .catch((error) => {
             console.error("Error adding document: ", error);
         });
+}
+
+const loginUser = (email, password) => {
+    return new Promise((resolve, reject) => {
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                let user = userCredential.user;
+                resolve(user)
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                reject({ errorCode, errorMessage })
+
+            });
+        // condition true ->resolve
+        //condition fase ->reject
+    })
+
+
 }

@@ -5,17 +5,42 @@ const formEl = document.querySelector('form');
 
 
 
+const validateForm = () => {
+
+    const formInputsEl = formEl.querySelectorAll('input, textarea, select');
+    let isFormDirty = true
+
+    formInputsEl.forEach((field) => {
+
+        
+
+        if (!field.hasAttribute('required')) {
+            field.required = true
+            isFormDirty = false;
+        }
+
+
+    });
+    return isFormDirty;
+
+}
 
 const submitForm = (e) => {
     e.preventDefault()
 
-    const formDate = new FormData(formEl);
-    const recordObj = Object.fromEntries(formDate)
+    if (validateForm()) {
+        console.log('validation Suceeds')
 
-    createRecord(recordObj);
 
-    // updated ul logic
-    updateUi();
+        const formDate = new FormData(formEl);
+        const recordObj = Object.fromEntries(formDate)
+
+        createRecord(recordObj);
+
+        // updated ul logic
+       // updateUi();
+
+    }
 
 }
 
