@@ -1,11 +1,11 @@
 const loginFormEl = document.querySelector('form#loginForm');
 
-// const checkIfserLoggedIn = () => {
-//     const userObj = JSON.parse(localStorage.getItem('user'))
-//     if (!userObj) {
-//         window.location.replace('/src/dashboard.html')
-//     }
-// }
+const checkIfserLoggedIn = () => {
+    const userObj = JSON.parse(localStorage.getItem('user'))
+    if (!userObj) {
+        window.location.replace('/src/dashboard.html')
+    }
+}
 
 //checkIfserLoggedIn();
 

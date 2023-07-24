@@ -10,12 +10,17 @@
 
     <link rel="stylesheet" href="/dist/output.css">
 
-<script>
-    const logout =() => {
-       const userObj = localStorage.removeItem('user')
-       window.location.replace('/src/login.html')
-    }
-</script>
+    <script>
+        const userObj = JSON.parse(localStorage.getItem('user'))
+        if (!userObj) {
+            window.location.replace('/src/login.html')
+        }
+
+        const logout = () => {
+            const userObj = localStorage.removeItem('user')
+            window.location.replace('/src/login.html')
+        }
+    </script>
 </head>
 
 <body class="bg-gray-200 ">
@@ -31,8 +36,8 @@
             <p class="text-xs text-gray-500">See the List of registraton here</p>
 
             <!-- form -->
-          
-            
+
+
         </div>
 
 
