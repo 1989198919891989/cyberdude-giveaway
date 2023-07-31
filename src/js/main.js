@@ -56,7 +56,7 @@ const submitForm = (e) => {
         createRecord(recordObj);
 
         // updated ul logic
-        // updateUi();
+        updateUi();
 
     }
 

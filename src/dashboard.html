@@ -20,6 +20,8 @@
             const userObj = localStorage.removeItem('user')
             window.location.replace('/src/login.html')
         }
+        // 
+     
     </script>
 </head>
 
@@ -33,9 +35,50 @@
     <main class="m-10">
         <div class="bg-white p-5 rounded shadow mx-auto">
             <h3 class="text-sm font-semibold">Dashboard</h3>
-            <p class="text-xs text-gray-500">See the List of registraton here</p>
+            <p class="text-xs text-gray-500 mt-1">See the List of registraton here</p>
 
-            <!-- form -->
+            <table class="w-full mt-5 text-sm text-center ">
+                <thead>
+                    <tr>
+                        <th class="border p-2 w-10">S.no</th>
+                        <th class="border p-2">Name</th>
+                        <th class="border p-2">communication</th>
+                        <th class="border p-2">Skills</th>
+                        <th class="border p-2">Studies</th>
+                        <th class="border p-2 w-48">Action</th>
+                    </tr>
+                </thead>
+
+                <body>
+                    <tr>
+                        <td class="border p-2">1</td>
+                        <td class="border p-2">
+                            <div>
+                                <span class="font-semibold text-sm">Mr. Dinesh</span>
+                                <div>Male | 06, july 1989</div>
+                            </div>
+                        </td>
+                        <td class="border p-2">
+                            <div>
+                                <span><a href="tel:9080536726">9080536726</a></span>
+                                <div><a href="mailto:emilid@gmail.com">emilid@gmail.com</a></div>
+                            </div>
+                        </td>
+                        <td class="border p-2">
+                            <div>
+                                <span class="">Javascript, php, python, golang</span>
+                                <div class="text-gray-500">(10 Year)</div>
+                            </div>
+                        </td>
+
+                        <td class="border p-2">B.E, CSE</td>
+                        <td class="border p-2">
+                            <button class="bg-indigo-500 hover:bg-indigo-600 px-4 py-1 rounded text-white">View</button>
+                            <button class="bg-red-500  hover:bg-red-600 px-4 py-1 rounded text-white">Delete</button>
+                        </td>
+                    </tr>
+                </body>
+            </table>
 
 
         </div>
@@ -54,7 +97,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.0.0/firebase-auth-compat.js"></script>
     <script src="./js/firebase.js"></script>
 
-    <script src="./js/login.js"></script>
+    <!-- <script src="./js/login.js"></script> -->
+    <script src="./js/admin.js"></script>
 
 </body>
 

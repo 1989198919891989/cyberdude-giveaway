@@ -9,6 +9,7 @@ const firebaseConfig = {
     appId: "1:1098368056531:web:560d7681e5402d83042826"
 };
 
+const COLLECTION_NAME ="requests"
 
 // Initialize Firebase 
 const app = firebase.initializeApp(firebaseConfig);
@@ -19,10 +20,12 @@ const auth = firebase.auth();
 
 
 
+
+
 const createRecord = (record) => {
 
     return db
-        .collection("requests")
+        .collection(COLLECTION_NAME)
         .add(record)
         .then((docRef) => {
             console.log("Document written with ID: ", docRef.id);
@@ -48,9 +51,27 @@ const loginUser = (email, password) => {
                 reject({ errorCode, errorMessage })
 
             });
-        // condition true ->resolve
-        //condition fase ->reject
-    })
 
+    });
+}
+
+
+const getAllRequest = () => {
+    return new Promise((resolve, reject) => {
+       const results = db
+        .collection(COLLECTION_NAME)
+        .get()
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+            })
+            resolve(results)
+        }).catch(e => {
+            console.log('error in getting', e);
+        })
+
+        
+    })
 
 }

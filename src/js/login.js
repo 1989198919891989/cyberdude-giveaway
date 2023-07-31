@@ -2,7 +2,7 @@ const loginFormEl = document.querySelector('form#loginForm');
 
 const checkIfserLoggedIn = () => {
     const userObj = JSON.parse(localStorage.getItem('user'))
-    if (!userObj) {
+    if (userObj) {
         window.location.replace('/src/dashboard.html')
     }
 }
@@ -10,29 +10,35 @@ const checkIfserLoggedIn = () => {
 //checkIfserLoggedIn();
 
 
+
 const handleLoginForm = (e) => {
-    e.preventDefault()
+  e.preventDefault()
 
 
-    const formData = new FormData(loginFormEl);
-    const { email, password } = Object.fromEntries(formData);
+  const formData = new FormData(loginFormEl);
+  //const loginE  = Object.fromEntries(formData);
 
-    // try To login
 
-    loginUser(email, password)
-        .then((user) => {
 
-            localStorage.setItem('user', JSON.stringify(user))
-            window.location.replace('/src/dashboard.html')
-          
-        })
-        .catch(({ errorCode }) => {
-            if (errorCode === 'auth/user-not-found') {
-                alert("Username/Password doesn'texist");
-            }
-        });
-    loginFormEl.reset();
-    
+
+  const { email, password } = Object.fromEntries(formData);
+
+
+
+  loginUser(email, password)
+    .then((user) => {
+      localStorage.setItem('user', JSON.stringify(user))
+      window.location.replace('/src/dashboard.html')
+    })
+    .catch(({errorCode}) => {
+      if (errorCode === 'auth/user-not-found'){
+        alert("Username/Password doesn't exist")
+      }
+    })
+
+
+  loginFormEl.reset();
+
 }
 
 loginFormEl.addEventListener('submit', handleLoginForm);
