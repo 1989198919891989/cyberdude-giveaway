@@ -30,7 +30,7 @@ if (userObj) {
 
                 const skills = document.createElement('td')
                 skills.classList.add('p-2', 'border')
-                skills.textContent = record.skills
+                skills.textContent = record.skilKnown
 
                 const studies = document.createElement('td')
                 studies.classList.add('p-2', 'border')
